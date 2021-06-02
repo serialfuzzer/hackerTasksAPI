@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const sitesSchema = new Schema({
-    siteName: {type: String, required: true}
-    //userId: {type: ObjectId, required: true}, username: {type: String, required: true}
+    siteName: {type: String, required: true},
+    ownerId: {type: ObjectId, required: true}
 })
 
 

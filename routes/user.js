@@ -48,4 +48,8 @@ body('password', "Invalid password").matches(/.{8}$/, "i"),
     
 }, userController.login)
 
+
+router.get("/getAll",
+    userController.getUsers);
+
 module.exports = router;

@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator'); 
 const sitesController = require("./../controller/sites");
+const auth = require('./../middleware/auth');
 
-router.get("/getAll",
+router.get("/get", auth,
     sitesController.getSite);
 
-router.post("/add", 
+router.post("/add", auth,
 body('siteName').isString(),
 (req, res, next)=>{
     var err = validationResult(req);
