@@ -23,4 +23,7 @@ body('siteName').isString(),
     
 },sitesController.addSite);
 
+router.get("/remove", auth,
+    sitesController.removeSiteByID);
+
 module.exports = router;
