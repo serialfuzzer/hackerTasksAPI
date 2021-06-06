@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const { MONGODB } = require("./database");
 const userRoutes = require('./routes/user');
 const sitesRoutes = require('./routes/sites');
+const checklistRoutes = require("./routes/checklist");
 const auth = require('./middleware/auth');
 
 app.use(express.json())
@@ -22,6 +23,7 @@ app.use("/authTest", auth, (req,res)=>{
 })
 app.use('/api/users', userRoutes);
 app.use('/api/sites', sitesRoutes);
+app.use('/api/checklist', checklistRoutes);
 
 
 app.use((err, req, res, next) => {
