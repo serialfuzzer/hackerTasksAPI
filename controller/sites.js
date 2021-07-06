@@ -9,9 +9,7 @@ exports.addSite = async (req, res, next) => {
     ownerId: req.user.id 
   })
   newSite.save();
-  res.status(200).json({
-      "message": "success"
-  })
+  res.status(200).json(newSite)
 }
 
 

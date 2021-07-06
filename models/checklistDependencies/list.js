@@ -3,11 +3,10 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const listSchema = new Schema({
-    listItemType: {type: String, required: true},
-    listItemText: {type: String, required: true},
-    childListReference: {type: ObjectId, required: true},
-    sectionReference: {type: ObjectId, required: true}
-})
+        listItemText: {type: String, required: true},
+        sectionReference: {type: ObjectId, required: false},   
+        ownerId: {type: ObjectId, required: true}
+    })
 
 module.exports = mongoose.model('list', listSchema);
 

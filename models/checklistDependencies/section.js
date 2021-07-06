@@ -4,8 +4,8 @@ const ObjectId = Schema.ObjectId;
 
 const sectionSchema = new Schema({
     title: {type: String, required: true},
-    checklistReference: {type: ObjectId, required: true},
-    listReference: {type: ObjectId, required: true}
+    checklistId: {type: ObjectId, required: true},
+    ownerId: {type: ObjectId, required: true},
 })
 
 module.exports = mongoose.model('section', sectionSchema);
