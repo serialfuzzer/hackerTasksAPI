@@ -4,7 +4,8 @@ const ObjectId = Schema.ObjectId;
 
 const sitesSchema = new Schema({
     siteName: {type: String, required: true},
-    ownerId: {type: ObjectId, required: true}
+    ownerId: {type: ObjectId, required: true},
+    projectId: {type: ObjectId, required: true}
 })
 
 

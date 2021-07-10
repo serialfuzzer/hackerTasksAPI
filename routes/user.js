@@ -39,7 +39,7 @@ body('password', "Invalid password").matches(/.{8}$/, "i"),
     console.log(err.isEmpty())
     console.log("-----------------------");
     if (!err.isEmpty()) {
-        res.send(err.mapped())
+        res.status(403).send(err.mapped())
         // errors encountered
     } else {
         console.log(req.body)

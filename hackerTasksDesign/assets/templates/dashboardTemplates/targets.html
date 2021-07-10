@@ -1,0 +1,31 @@
+<div class="targetWrapper">
+    <h4 class="text-light">Targets</h4>
+    <div class="targetsView">
+        <table class="table text-dark bg-light">
+            <thead>
+                <tr>
+                    <th scope="col">Target Number</th>
+                    <th scope="col">Target URL</th>
+                    <th scope="col">Target Actions</th>
+                    <th scope="col">Project</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="target in targetList">
+                    <input class="invisible" type="text">
+                    <th scope="row">{{$index + 1}}</th>
+                    <td>{{ target.siteName }}</td>
+                    <td> <a href="#" ng-click="removeSite(target._id)"><i class='bx bx-trash text-dark'></i> Remove</a></td>
+                    <td>{{target.projectName}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="col-3 py-2">
+            <input class="form-control"  placeholder="Enter URL" ng-model="targetURL">
+            <select  ng-model="selectedProject" class="form-select my-2" ng-options="project._id as project.projectName for project in projectList"></select>
+            <div class="alert alert-danger" ng-hide="projectList.length!=0">Error! Cannot add a project before adding a target</div>
+        </div>
+        <button type="submit" class="btn btn-light" ng-click="addTarget()" ng-disabled="projectList.length == 0">Add </button>
+
+    </div>
+</div>

@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator'); 
-const sitesController = require("./../controller/sites");
+const projectController = require("./../controller/project");
 const auth = require('./../middleware/auth');
 
 router.get("/get", auth,
-    sitesController.getSite);
+projectController.getProject);
 
 router.post("/add", auth,
-body('siteName').isString(),
+body('projectName').isString(),
 (req, res, next)=>{
     var err = validationResult(req);
     console.log(err.isEmpty())
@@ -21,9 +21,8 @@ body('siteName').isString(),
         next()
     }
     
-},sitesController.addSite);
+},projectController.addProject);
 
-router.post("/remove", auth,
-    sitesController.removeSiteByID);
+router.post("/remove", auth, projectController.removeProjectById);
 
 module.exports = router;
