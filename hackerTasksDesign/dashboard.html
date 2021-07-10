@@ -26,19 +26,25 @@
 </head>
 <body class="bg-dark" ng-controller="mainController">
   <div id="body-pd" class="authenticated" >
+    <!-- Navbar Start-->
     <header class="header bg-dark" id="header">
       <div class="header_toggle"> <i class='bx bx-menu text-green' id="header-toggle"></i> </div>
       <div class="header_img">
-        <a href="#">
-          <i class='bx bxs-bell text-light nav_icon'></i>
-          
+        <a href="#" ng-if="notification==0">
+          <i class='bx bxs-bell text-light nav_icon'></i>   
         </a>    
-        <a href="#">
+        <a href="#" ng-if="notification>0">
           <i class='bx bxs-bell-ring text-green nav_icon'></i>
         </a>
+        <a href="#" ng-click="logout()"> 
+          <i class='bx bx-log-out nav_icon'></i>
+        </a>
+
         
       </div>
     </header>
+    <!-- Navbar End-->
+    <!-- Sidebar Start-->
     <div class="l-navbar bg-dark text-green nav-border" id="nav-bar">
       <nav class="nav">
         <div> <a href="#" class="nav_logo">  <i class='bx bxs-terminal text-green nav_logo-icon'></i> <span class="nav_logo-name text-light">hacker<span class="text-green">Tasks</span></span> </a>
@@ -51,9 +57,10 @@
             <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Stats</span> </a>
             <a href="#" class="nav_link"> <i class='bx bx-code-curly nav_icon'></i> <span class="nav_name">Scripts</span> </a>  
           </div>
-        </div> <a href="#" ng-click="logout()" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Log Out</span> </a>
-      </nav>
+        </div> 
+          </nav>
     </div>
+     <!-- Sidebar End-->
     <!--Container Main start-->
     <div class="container-fluid bg-dark pt-5">
       <ui-view></ui-view>

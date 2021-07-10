@@ -20,6 +20,6 @@ iii. Share checklist among users
 1. Install Node and NPM
 1. Open the app directory in terminal and execute the command `npm install --save`
 1. Set up a MongoDB database (use docker if too complicated)
-1. Update the database string at database/index.js
+1. Update the database string at database/index.js 
 1. Open the app directory in terminal and execute the command `npm start`
 1. Browse to `http://localhost:1337/app` in web browser and use the application
