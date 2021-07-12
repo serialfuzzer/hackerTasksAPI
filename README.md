@@ -7,13 +7,13 @@ ii. Registration
 iii. Login
 iv. Authorization
 v. Sites (Add and GET)
-vi. Remove Site by siteId
+vi. Checklist related features
+vii. Structure targets into project 
 
 ## Features To Add
 
-i. Add checklist
-ii. Remove checklist
-iii. Share checklist among users
+1. Share checklist among users
+1. URL Validation in the Sites controller
 
 
 ## How to run

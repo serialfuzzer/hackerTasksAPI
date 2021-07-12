@@ -17,10 +17,10 @@ app.use(express.json())
 const port = 1337;
 
 
-app.use('/app', express.static(__dirname+ '/hackerTasksDesign'));
+app.use('/app', express.static(__dirname + '/hackerTasksDesign'));
 
 
-app.use((req,res,next)=>{
+app.use((req, res, next) => {
     res.set('Access-Control-Allow-Origin', '*');
     res.set('Content-Type', 'application/json');
     res.set("Access-Control-Allow-Methods", "POST, GET");
@@ -31,7 +31,7 @@ app.use((req,res,next)=>{
 
 
 
-app.use("/authTest", auth, (req,res)=>{
+app.use("/authTest", auth, (req, res) => {
     res.json({
         message: `Welcome ${req.user.email}`
     })
@@ -53,22 +53,22 @@ app.use((err, req, res, next) => {
     });
 })
 
-app.use((req,res,next)=>{
+app.use((req, res, next) => {
     const err = {
         "error": {
             "msg": "404 Not Found"
         }
     }
-    res.status(404).json(err); 
+    res.status(404).json(err);
 })
 
 
 
-mongoose.connect(MONGODB, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(MONGODB, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(
-        ()=>{
+        () => {
             console.log("connected to mongodb");
-            
+
             return app.listen(port);
 
         }
@@ -79,7 +79,7 @@ mongoose.connect(MONGODB, {useNewUrlParser: true, useUnifiedTopology: true})
         }
     )
     .catch(
-        err=>{
+        err => {
             console.log(err.message)
         }
     );

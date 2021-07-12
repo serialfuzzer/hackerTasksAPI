@@ -1,43 +1,29 @@
 const express = require('express');
 const router = express.Router();
-const { body, validationResult } = require('express-validator'); 
+const { body, validationResult } = require('express-validator');
 const checklist = require('../models/checklist');
 const checklistController = require("./../controller/checklist");
 const auth = require('./../middleware/auth');
 
 
 router.post("/add", auth,
-body('title').isString(),
-(req, res, next)=>{
-    var err = validationResult(req);
-    console.log(err.isEmpty())
-    console.log("-----------------------");
-    if (!err.isEmpty()) {
-        res.send(err.mapped())
-        // errors encountered
-    } else {
-        console.log(req.body)
-        next()
-    }
-    
-},checklistController.addChecklist);
+    body('title').isString(),
+    (req, res, next) => {
+        var err = validationResult(req);
+        console.log(err.isEmpty())
+        console.log("-----------------------");
+        if (!err.isEmpty()) {
+            res.send(err.mapped())
+                // errors encountered
+        } else {
+            console.log(req.body)
+            next()
+        }
+
+    }, checklistController.addChecklist);
 
 
-router.post("/removeChecklistByChecklistId", auth, body('checklistId').isString(),
-(req, res, next)=>{
-    var err = validationResult(req);
-    console.log(err.isEmpty())
-    console.log("-----------------------");
-    if (!err.isEmpty()) {
-        res.send(err.mapped())
-        // errors encountered
-    } else {
-        console.log(req.body)
-        next(err)
-    }
-    
-},
-checklistController.removeChecklist);
+router.post("/removeChecklist", auth, checklistController.removeChecklist);
 
 router.post("/getChecklistByChecklistId", auth, checklistController.getChecklistByChecklistId); // add validation routes
 
@@ -54,5 +40,7 @@ router.post("/getListBySectionId", auth, checklistController.getListBySectionId)
 router.post("/removeListByListId", auth, checklistController.removeListByListId);
 
 router.post("/getFullListByChecklistId", auth, checklistController.getFullListByChecklistId);
+
+router.get("/getAllChecklist", auth, checklistController.getChecklist);
 
 module.exports = router;

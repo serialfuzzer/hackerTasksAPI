@@ -1,12 +1,11 @@
-<div class="projectWrapper">
-    <h4 class="text-light">Projects</h4>
+<div class="text-light">
+    <h1>Select a project</h1>
     <div class="projectView">
         <table class="table text-dark bg-light">
             <thead>
                 <tr>
                     <th scope="col">Project Number</th>
                     <th scope="col">Project Name</th>
-                    <th scope="col">Project Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -14,13 +13,8 @@
                     <input class="invisible" type="text">
                     <th scope="row">{{$index + 1}}</th>
                     <td>{{ project.projectName }}</td>
-                    <td> <a href="" ng-click="removeProject(project._id)"><i class='bx bx-trash text-dark'></i> Remove</a></td>
                 </tr>
             </tbody>
         </table>
-        <div class="col-3 py-2">
-            <input class="form-control" placeholder="Enter Project Name" ng-model="projectName">
-        </div>
-        <button type="submit" class="btn btn-light" ng-click="addProject()">Add </button>
     </div>
 </div>
