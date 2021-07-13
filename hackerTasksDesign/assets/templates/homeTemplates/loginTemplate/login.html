@@ -35,7 +35,7 @@
                                 <small id="emailHelp" class="form-text text-muted">Do not share your password with anyone</small>
                                 <div class="alert alert-danger" ng-if="validateEmail(email);" ng-cloak>Please enter a valid email address</div>
                                 <div class="alert alert-danger" ng-if="incorrectPassword===1" ng-cloak>Invalid email/password combination</div>
-
+                                <div class="alert alert-danger" ng-show="incorrectPassword===1" ng-cloak>Invalid email/password combination</div>
                             </div>
                         </form>
                         <button type="submit" class="btn btn-success" ng-click="login()" ng-disabled="validateEmail(email)">Login</button>

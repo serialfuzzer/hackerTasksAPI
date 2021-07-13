@@ -7,7 +7,7 @@ dashboardApp.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.when('', '/count');
 
 
-    $stateProvider
+    $stateProvider // target routes
         .state("targets", {
             url: "/targets",
             templateUrl: 'assets/templates/dashboardTemplates/targets.html',
@@ -46,7 +46,7 @@ dashboardApp.config(function($stateProvider, $urlRouterProvider) {
                     )
                 }
             }
-        })
+        }) // project routes
         .state("projects", {
             url: "/projects",
             templateUrl: 'assets/templates/dashboardTemplates/projects.html',
@@ -69,7 +69,7 @@ dashboardApp.config(function($stateProvider, $urlRouterProvider) {
                     )
                 }
             }
-        })
+        }) // checklist routes
         .state("checklist", {
             url: "/checklist",
             templateUrl: "assets/templates/dashboardTemplates/checklist.html",
@@ -92,7 +92,7 @@ dashboardApp.config(function($stateProvider, $urlRouterProvider) {
                     )
                 }
             }
-        })
+        }) // count routes
         .state("count", {
             url: "/count",
             templateUrl: "assets/templates/dashboardTemplates/count.html",
@@ -131,13 +131,52 @@ dashboardApp.config(function($stateProvider, $urlRouterProvider) {
                     )
                 }
             }
-        })
+        }) // collaboration routes
         .state("collaboration", {
             url: "/projects",
             templateUrl: 'assets/templates/dashboardTemplates/collaboration.html',
             controller: 'collaborationController',
             resolve: {}
+        }) // scripts routes
+        .state("scripts", {
+            url: "/scripts",
+            templateUrl: "assets/templates/dashboardTemplates/scripts.html",
+            controller: "scriptController",
+            resolve: {}
+        }) // stats routes
+        .state("stats", {
+            url: "/stats",
+            templateUrl: "assets/templates/dashboardTemplates/stats.html",
+            controller: "scriptController",
+            resolve: {}
+        }) // checklist targets under project view
+        .state("projectTargets", {
+            url: "/projectTargets/:id",
+            templateUrl: "assets/templates/dashboardTemplates/projectTarget.html",
+            controller: "projectTargetController",
+            resolve: {
+                targetList: function($http) {
+                    var requestObject = {
+                        method: 'GET',
+                        url: `${API_URL}/sites/get`,
+                        headers: {
+                            'Authorization': `Bearer ${window.localStorage.getItem("apiToken")}`
+                        }
+                    }
+                    return $http(requestObject).then(function(response) {
+                        return response.data || [];
+                    }).catch(
+                        function(err) {
+                            return [];
+                        }
+                    )
+                }
+            }
         })
+
+
+
+
 
 })
 

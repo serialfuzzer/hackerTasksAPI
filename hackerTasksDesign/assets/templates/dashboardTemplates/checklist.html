@@ -12,7 +12,7 @@
                 <tr ng-repeat="project in projectList">
                     <input class="invisible" type="text">
                     <th scope="row">{{$index + 1}}</th>
-                    <td>{{ project.projectName }}</td>
+                    <td><a href="#" ui-sref="projectTargets({id: project._id})"> {{ project.projectName }} </a></td>
                 </tr>
             </tbody>
         </table>

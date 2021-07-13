@@ -1,0 +1,23 @@
+<div class="targetWrapper">
+    <small> <a href="#/checklist" class="text-green" ui-sref="checklist" ui-sref-active="active"> &lt; Go back to projects </a></small>
+    <h4 class="text-light">Targets</h4>
+    <div class="targetsView">
+        <table class="table text-dark bg-light">
+            <thead>
+                <tr>
+                    <th scope="col">Target Number</th>
+                    <th scope="col">Target URL</th>
+                    <th scope="col">Project</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="target in targetList" ng-show="isCurrentProject(target)">
+                    <input class="invisible" type="text">
+                    <th scope="row">{{$index + 1}}</th>
+                    <td>{{ target.siteName }}</td>
+                    <td>{{target.projectName}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
