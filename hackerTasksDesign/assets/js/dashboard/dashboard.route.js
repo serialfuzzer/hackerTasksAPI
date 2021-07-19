@@ -170,6 +170,38 @@ dashboardApp.config(function($stateProvider, $urlRouterProvider) {
                             return [];
                         }
                     )
+                },
+                checklistInstances: function($http) {
+                    var requestObject = {
+                        method: 'GET',
+                        url: `${API_URL}/checklist/getChecklistInstance`,
+                        headers: {
+                            'Authorization': `Bearer ${window.localStorage.getItem("apiToken")}`
+                        }
+                    }
+                    return $http(requestObject).then(function(response) {
+                        return response.data || [];
+                    }).catch(
+                        function(err) {
+                            return [];
+                        }
+                    )
+                },
+                checklists: function($http) {
+                    var requestObject = {
+                        method: 'GET',
+                        url: `${API_URL}/checklist/getAllChecklist`,
+                        headers: {
+                            'Authorization': `Bearer ${window.localStorage.getItem("apiToken")}`
+                        }
+                    }
+                    return $http(requestObject).then(function(response) {
+                        return response.data || [];
+                    }).catch(
+                        function(err) {
+                            return [];
+                        }
+                    )
                 }
             }
         })

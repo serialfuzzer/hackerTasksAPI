@@ -43,4 +43,9 @@ router.post("/getFullListByChecklistId", auth, checklistController.getFullListBy
 
 router.get("/getAllChecklist", auth, checklistController.getChecklist);
 
+router.post("/makeChecklistInstance", auth, checklistController.makeChecklistInstance);
+
+router.get("/getChecklistInstance", auth, checklistController.getChecklistInstance);
+
+
 module.exports = router;

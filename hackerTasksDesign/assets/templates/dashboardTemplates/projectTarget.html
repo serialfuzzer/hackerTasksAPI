@@ -7,6 +7,7 @@
                 <tr>
                     <th scope="col">Target Number</th>
                     <th scope="col">Target URL</th>
+                    <th scope="col">Checklist</th>
                     <th scope="col">Project</th>
                 </tr>
             </thead>
@@ -15,6 +16,16 @@
                     <input class="invisible" type="text">
                     <th scope="row">{{$index + 1}}</th>
                     <td>{{ target.siteName }}</td>
+                    <td>
+                        <div ng-hide="getChecklistInfo(target).length == 0">
+                            <a href="#/{{getChecklistInfo(target)[1]}}" description="Render Checklist By checklist instance id">  {{ getChecklistInfo(target)[0]}} </a>
+                        </div>
+                        <div ng-show="getChecklistInfo(target).length == 0">
+                            Please select a checklist for this target:
+                            <select ng-model="target.selectedChecklist" class="form-select" ng-options="checklist._id as checklist.title for checklist in checklists"></select>
+                            <button type="submit" class="btn btn-dark" ng-click="selectChecklist(target)">Select </button>
+                        </div>
+                    </td>
                     <td>{{target.projectName}}</td>
                 </tr>
             </tbody>

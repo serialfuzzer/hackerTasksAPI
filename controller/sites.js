@@ -1,6 +1,7 @@
 const e = require("express");
 const Sites = require("./../models/sites");
 const Project = require("../models/projects");
+const checklistInstance = require("../models/checklist").checklistInstance;
 
 
 exports.addSite = async(req, res, next) => {
