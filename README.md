@@ -8,7 +8,7 @@ I have discontinued this project because I don't see any return to me from it pe
 
 ## Why not delete the repository then?
 
-I want to keep history of things I've done. If anyone thinks this will be a good project to me, they could understand the structure, maybe clone it in another language or just decide to extend features on top of it. Hence, I'm open sourcing it. 
+I want to keep history of things I've done. If anyone thinks this will be a good project for them, they could understand the structure, maybe clone it in another language or just decide to extend features on top of it. Hence, I'm open sourcing it. 
 
 
 ## Features
