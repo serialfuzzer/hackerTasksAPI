@@ -1,6 +1,16 @@
 # hackerTasksAPI
 API of hackerTasks under development
 
+
+## Recent Updates
+
+I have discontinued this project because I don't see any return to me from it personally in the forseeable future. I have decided to invest my time in something that's more unique and beneficial to the end user. Productivity problems are already solved by multitude of applications and services. Hence, there will be no HackerTasks v2. 
+
+## Why not delete the repository then?
+
+I want to keep history of things I've done. If anyone thinks this will be a good project to me, they could understand the structure, maybe clone it in another language or just decide to extend features on top of it. Hence, I'm open sourcing it. 
+
+
 ## Features
 i. Authentication
 ii. Registration
